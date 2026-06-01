@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Wishboard Design System - Dark Theme Financial App */
+
+@layer base {
+  :root {
+    --background: 240 10% 4%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 6%;
+    --card-foreground: 0 0% 98%;
+    --card-elevated: 240 10% 8%;
+
+    --popover: 240 10% 6%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 270 91% 65%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 270 91% 75%;
+
+    --secondary: 25 95% 60%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-glow: 25 95% 70%;
+
+    --muted: 240 10% 12%;
+    --muted-foreground: 240 5% 55%;
+
+    --accent: 270 91% 65%;
+    --accent-foreground: 0 0% 98%;
+
+    --success: 142 72% 45%;
+    --success-foreground: 0 0% 98%;
+
+    --warning: 25 95% 60%;
+    --warning-foreground: 240 10% 4%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 10% 15%;
+    --input: 240 10% 10%;
+    --ring: 270 91% 65%;
+
+    --radius: 0.75rem;
+
+    /* Custom gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(270 91% 65%), hsl(270 91% 55%));
+    --gradient-secondary: linear-gradient(135deg, hsl(25 95% 60%), hsl(25 95% 50%));
+    --gradient-card: linear-gradient(145deg, hsl(240 10% 8%), hsl(240 10% 5%));
+    --gradient-hero: linear-gradient(135deg, hsl(240 10% 6%), hsl(240 10% 3%));
+
+    /* Shadows */
+    --shadow-card: 0 4px 20px -4px hsl(0 0% 0% / 0.5);
+    --shadow-elevated: 0 8px 30px -8px hsl(0 0% 0% / 0.6);
+    --shadow-glow-primary: 0 0 40px hsl(270 91% 65% / 0.3);
+    --shadow-glow-secondary: 0 0 40px hsl(25 95% 60% / 0.3);
+
+    --sidebar-background: 240 10% 5%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 270 91% 65%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 10% 10%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 240 10% 12%;
+    --sidebar-ring: 270 91% 65%;
+
+    /* Category colors */
+    --category-food: 24 95% 53%;           /* Laranja */
+    --category-transport: 211 96% 48%;     /* Azul */
+    --category-housing: 142 72% 45%;       /* Verde */
+    --category-leisure: 270 91% 65%;       /* Roxo */
+    --category-health: 350 80% 55%;        /* Vermelho */
+    --category-education: 45 93% 47%;      /* Amarelo/Dourado */
+    --category-shopping: 320 70% 60%;      /* Rosa */
+    --category-bills: 180 70% 50%;         /* Turquesa/Ciano */
+    --category-teal: 175 65% 50%;          /* Verde-água */
+    --category-indigo: 240 70% 60%;        /* Índigo */
+    --category-lime: 80 70% 50%;           /* Verde-Limão */
+    --category-amber: 40 90% 55%;          /* Âmbar */
+    --category-emerald: 160 75% 45%;       /* Esmeralda */
+    --category-violet: 260 80% 65%;        /* Violeta */
+    --category-cyan: 190 80% 50%;          /* Ciano Claro */
+    --category-fuchsia: 310 80% 60%;       /* Fúcsia */
+    --category-sky: 200 90% 55%;           /* Azul Céu */
+    --category-rose: 340 75% 60%;          /* Rosa Claro */
+    --category-mint: 165 60% 55%;          /* Menta */
+    --category-coral: 15 85% 60%;          /* Coral */
+    --category-lavender: 275 70% 70%;      /* Lavanda */
+    --category-peach: 25 90% 65%;          /* Pêssego */
+    --category-olive: 60 50% 45%;          /* Oliva */
+    --category-navy: 220 80% 40%;          /* Azul Marinho */
+  }
+
+  .dark {
+    --background: 240 10% 4%;
+    --foreground: 0 0% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-xl border border-border/50 rounded-2xl;
+    box-shadow: var(--shadow-card);
+  }
+
+  .glass-card-elevated {
+    @apply bg-card-elevated/90 backdrop-blur-xl border border-border/30 rounded-2xl;
+    box-shadow: var(--shadow-elevated);
+  }
+
+  .glow-primary {
+    box-shadow: var(--shadow-glow-primary);
+  }
+
+  .glow-secondary {
+    box-shadow: var(--shadow-glow-secondary);
+  }
+
+  .gradient-text-primary {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+  }
+
+  .gradient-text-secondary {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-glow)));
+  }
+
+  .progress-bar {
+    @apply h-2 rounded-full overflow-hidden bg-muted;
+  }
+
+  .progress-fill {
+    @apply h-full rounded-full transition-all duration-700 ease-out;
+    background: var(--gradient-primary);
+  }
+
+  .nav-item {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-muted-foreground transition-all duration-200;
+  }
+
+  .nav-item:hover {
+    @apply bg-muted/50 text-foreground;
+  }
+
+  .nav-item.active {
+    @apply bg-primary/10 text-primary;
+  }
+
+  .stat-card {
+    @apply glass-card p-5 transition-all duration-300 hover:scale-[1.02];
+  }
+
+  .category-badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium;
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.5s ease-out;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out;
+  }
+
+  .animate-slide-in {
+    animation: slideIn 0.4s ease-out;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
